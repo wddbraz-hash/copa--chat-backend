@@ -9,7 +9,7 @@ CORS(app)  # Permite requisições do seu frontend
 # Insira sua chave da Groq aqui ou configure via Variável de Ambiente (GROQ_API_KEY)
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "SUA_CHAVE_GROQ_AQUI")
 MODELO=os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
-
+PORT=os.environ.get("PORT", 5000)
 client = Groq(api_key=GROQ_API_KEY)
 
 @app.route('/api/perguntar', methods=['POST'])
@@ -46,4 +46,4 @@ def perguntar_copa():
 
 if __name__ == '__main__':
     # Roda o servidor local na porta 5000
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=PORT, debug=True)
